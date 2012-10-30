@@ -7,7 +7,7 @@
 
 class Engine
 {
-	sf::Window mainWIndow;
+	sf::Window mainWindow;
 	Engine();
 public:
 	static Engine& GetInstance();
