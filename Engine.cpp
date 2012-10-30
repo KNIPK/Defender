@@ -6,6 +6,7 @@
 Engine::Engine()
 {
 	//to do
+	mainWindow.create(sf::VideoMode(800,600), "Defender");
 }
 
 Engine& Engine::GetInstance()

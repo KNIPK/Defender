@@ -18,11 +18,11 @@ int main()
 	states[2] = new WorkshopState;
 	states[3] = new BattlefieldState;
 
-	int currentState = 0;
+	int currentState = 2;
 
 	while(currentState != -1)
 	{
-		states[currentState]->Run(playerData);
+		currentState = states[currentState]->Run(playerData);
 	}
 
 	return 0;

@@ -7,13 +7,15 @@
 
 class Engine
 {
-	sf::Window mainWindow;
+	sf::RenderWindow mainWindow;
 	Engine();
 public:
 	static Engine& GetInstance();
 
 	bool LoadSettings(std::string fileName = "config/config.cfg");
 	bool SaveSettings(std::string fileName = "config/config.cfg");
+
+	sf::RenderWindow& GetWindow() { return mainWindow; }
 };
 
 #endif
