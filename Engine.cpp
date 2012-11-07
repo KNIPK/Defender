@@ -8,7 +8,9 @@ Engine::Engine()
 	//to do
 	LoadSettings();
 	int w = 800, h = 600;
-	std::istringstream(properties["screenWidth"]) >> w;
+	w = atoi(properties["screenWidth"].c_str());
+	h = atoi(properties["screenHeight"].c_str());
+
 	std::istringstream(properties["screenHeight"]) >> h;
 	
 	mainWindow.create(sf::VideoMode(w,h), "Defender");
@@ -34,9 +36,11 @@ bool Engine::LoadSettings(std::string fileName)
 	{
 		std::getline(file, tmp);
 
-		properties[tmp.substr(0, tmp.find_first_of('=')-1)] = tmp.substr(tmp.find_first_of('=')+1);
+		int pos = tmp.find_first_of('=');
+		//properties[tmp.substr(0, pos-1)] = tmp.substr(pos+1, tmp.length()-1);
+		properties.insert(std::make_pair<std::string, std::string>(tmp.substr(0, pos),  tmp.substr(pos+1, tmp.length()-1))); 
 
-		std::cout<<tmp.substr(0, tmp.find_first_of('='))<<std::endl;
+		std::cout<<tmp.substr(0, pos)<<"\t"<<tmp.substr(pos+1, tmp.length()-1)<<std::endl;
 	}
 
 	return true;
