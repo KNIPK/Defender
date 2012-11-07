@@ -2,12 +2,20 @@
 #define ENGINE_H_
 
 #include <string>
+#include <fstream>
+#include <map>
+#include <sstream>
+
+#include <iostream>
 
 #include <SFML/Graphics.hpp>
 
 class Engine
 {
 	sf::RenderWindow mainWindow;
+
+	std::map<std::string, std::string> properties;
+
 	Engine();
 public:
 	static Engine& GetInstance();
