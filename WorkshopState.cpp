@@ -1,8 +1,12 @@
 #include "WorkshopState.h"
+#include "BattlefieldProjector.h"
 
 int WorkshopState::Run(PlayerData& data)
 {
 	sf::RenderWindow& window = Engine::GetInstance().GetWindow();
+	window.setFramerateLimit(30);
+	BattlefieldProjector projector;
+	projector.SetNewState(this);
 	while(window.isOpen())
 	{
 		sf::Event event;
@@ -16,7 +20,12 @@ int WorkshopState::Run(PlayerData& data)
 
 		window.clear();
 
+		projector.Update();
+
 		window.display();
+
+
+
 	}
 	// g³ówna funkcja stanu
 	// to uzupe³nienia

@@ -12,7 +12,7 @@ Engine::Engine()
 	h = atoi(properties["screenHeight"].c_str());
 
 	std::istringstream(properties["screenHeight"]) >> h;
-	
+
 	mainWindow.create(sf::VideoMode(w,h), "Defender");
 	//mainWindow.create(sf::VideoMode(800,600), "Defender");
 }
@@ -38,7 +38,7 @@ bool Engine::LoadSettings(std::string fileName)
 
 		int pos = tmp.find_first_of('=');
 		//properties[tmp.substr(0, pos-1)] = tmp.substr(pos+1, tmp.length()-1);
-		properties.insert(std::make_pair<std::string, std::string>(tmp.substr(0, pos),  tmp.substr(pos+1, tmp.length()-1))); 
+		properties.insert(std::make_pair<std::string, std::string>(tmp.substr(0, pos),  tmp.substr(pos+1, tmp.length()-1)));
 
 		std::cout<<tmp.substr(0, pos)<<"\t"<<tmp.substr(pos+1, tmp.length()-1)<<std::endl;
 	}
