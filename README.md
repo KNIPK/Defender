@@ -1,4 +1,0 @@
-Defender
-========
-
-Defender game
